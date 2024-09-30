@@ -1,0 +1,24 @@
+Criterios de encapsulamiento:
+    -Consiste en combinar datos y comportamientos en un paquete y ocultar los detalles
+    de la implementación del usuario del objeto
+    -Criterios:
+        +Es cuando limitamos el acceso o damos un acceso restringido 
+        de una propiedad a los elementos que necesita un miembro y no a ninguno más. 
+Criterios de acceso disponible:
+    -Public: atributos o métodos que no tienen de prefijo un guion bajo,se considera que puede ser
+    accedidos desde cualquier lado, adentro y afuera de la clase
+    -Protected: atributos o métodos que tienen un guión bajo _ como prefijo, se deben usar en la propia clas y subclases.
+    -Private: atributo con doble guión bajo __ indica que no deberia usarse desde afuera de la clase.
+    __________________________________________________________________________________________________
+    self._atributo = "Protected"
+    self.__atributo = "Private"
+
+    Metodo:
+    def _protegido(self):
+        print("Metodo protegido")
+
+    def __privado(self):
+        print("Metodo privado")
+
+ESTO SE REALIZA CON EL FIN DE RESTRINGIR EL ACCESO DIRECTO DE ALGUNOS COMPONENTES DE UN OBJETO,
+PARA QUE UN USUARIO NO PUEDA ACCEDER A LOS VALORES DE ESTADO DE TODAS LAS VARIABLES DE UN OBJETO EN PARTICULAR

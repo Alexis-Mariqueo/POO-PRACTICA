@@ -1,0 +1,14 @@
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla
+[LOG] Database: procesa consulta: select * from mi_tabla

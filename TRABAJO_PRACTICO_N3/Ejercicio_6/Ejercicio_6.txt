@@ -1,0 +1,4 @@
+Lo que se imprime en el ejercicio 6 es una lista de personas. La cual tiene a los docentes
+en donde muestra la materia que tiene y por otro lado a los alumnos con la lista de materias que
+cursan. Esto se debe a que los dos implementan el mismo metodo pero hacen cosas distinta, una sobre carga
+de metodo. Ademas de que fomenta la extensibilidad y define un metodo que la clase hija debe cumplir. 

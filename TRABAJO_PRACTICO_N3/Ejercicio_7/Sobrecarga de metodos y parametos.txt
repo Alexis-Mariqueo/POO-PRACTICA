@@ -1,0 +1,12 @@
+Sobrecarga de metodos:
+Se refiere a la posibilidad de tener dos o más métodos con el mismo nombre
+pero distinta funcionalidad. Es decir, dos o más metodos con el mismo nombre
+realizan acciones diferentes y el compilador usara una u otra dependiendo
+de los parametros usados.
+
+Sobrecarga de parametros: Cuando en una clase tine su constructor
+con muchos parametros, se dice que hay sobrecarga de parametros
+
+Sobrecarga de constructores: Cuando en una clase existen constructores
+múltiples, se dice que hay sobrecarga de constructores
+
