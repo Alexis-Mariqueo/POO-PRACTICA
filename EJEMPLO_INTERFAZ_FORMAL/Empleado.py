@@ -7,7 +7,7 @@ class Empleado(ABC):
         pass
     
     @abstractmethod
-    def mostrar_informacion(self):
+    def mostrar_informacion(self): ##Esto se declara en las clases
         pass
     
     
