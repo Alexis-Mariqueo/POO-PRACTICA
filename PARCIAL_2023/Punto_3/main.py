@@ -6,8 +6,8 @@ import random
 lista_impuesto = []
 mes_actual = 10 
 
-bancaria = Banco("Alexis Mariqueo",60000,random.randrange(10000,20000),random.randrange(100000000,999999999))
-virtual = BilleteraVirtual("Enzo Puñalef",50000,random.randrange(10000,20000),random.randrange(100000000,999999999))
+bancaria = Banco("Alexis Mariqueo",60000,random.randrange(10000,20000),random.randrange(1000,9999))
+virtual = BilleteraVirtual("Enzo Puñalef",50000,random.randrange(10000,20000),random.randrange(1000,9999))
 
 for i in range(1,21):
     lista_impuesto.append(Impuesto(f"Impuesto_{i}",random.randrange(1000,20000),random.randrange(1,12)))

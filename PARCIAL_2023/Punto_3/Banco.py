@@ -7,7 +7,7 @@ class Banco(Cuenta):
         self.__cbu = cbu
            
     def pagar_debito(self, pago):
-        return super().pagar_debito(pago) + (pago * 0.1)
+        return super().pagar_debito(pago * 0.1)
             
     def pagar_credito(self,pago,cuota):
         if self._saldo < pago:
