@@ -10,10 +10,12 @@ class Cuenta(ABC):
     def set_sueldo(self,saldo):
         self._saldo = saldo
         
-    @abstractmethod    
     def pagar_debito(self,pago):
-        pass
+        if self._saldo < pago:
+            print("Saldo insuficiente")
+        else:
+            self._saldo = self._saldo - pago 
     
-    @abstractmethod
+    @abstractmethod        
     def pagar_credito(self,pago,cuota):
         pass

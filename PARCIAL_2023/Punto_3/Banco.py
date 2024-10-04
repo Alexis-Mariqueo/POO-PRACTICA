@@ -2,26 +2,21 @@ from Cuenta import Cuenta
 
 class Cuenta(Cuenta):
     
-    def __init__(self, dueño):
-        super().__init__(dueño, saldo = 80000, numero_cuenta = "N° 1908400")
+    def __init__(self, dueño,saldo,numero_cuenta,cbu):
+        super().__init__(dueño,saldo,numero_cuenta)
+        self.__cbu = cbu
            
-    def pagar_debito(self,pago):
-        reintegro = (pago * 10)/100
-        self._saldo = self._saldo - pago
-        self._saldo = self._saldo + reintegro
-    
+    def pagar_debito(self, pago):
+        return super().pagar_debito(pago) + (pago * 0.1)
+            
     def pagar_credito(self,pago,cuota):
-        if cuota <= 3:
-            descontar = pago /cuota
-            for i in range(cuota):
-                if i == 1:
-                    self._saldo = self._saldo - descontar
-            pago = pago - descontar
-            self._saldo = self._saldo - pago 
+        if self._saldo < pago:
+            print("Saldo insuficiente")
         else:
-            total_pago = (pago +  (2 * cuota) )
-            interes = total_pago / cuota
-            for i in range(cuota):
-                if i == 1:
-                    self._saldo = self._saldo - interes
-            self._saldo = self._saldo -(total_pago - interes)    
+            if cuota <= 3:
+                descontar = pago /cuota
+                self._saldo = self._saldo - descontar 
+            else:
+                total_pago = (pago +  (2 * cuota) )
+                interes = total_pago / cuota
+                self._saldo = self._saldo - interes
