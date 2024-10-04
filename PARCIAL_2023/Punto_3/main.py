@@ -66,4 +66,5 @@ while True:
                     print("Saldo insuficiente")
                     bool2 = True        
 
-         
+print(bancaria.get_sueldo())
+print(virtual.get_sueldo())         
