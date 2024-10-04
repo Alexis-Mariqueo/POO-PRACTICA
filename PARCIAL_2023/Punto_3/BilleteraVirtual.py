@@ -11,7 +11,7 @@ class BilleteraVirtual(Cuenta):
         
     def pagar_credito(self, pago, cuota):
         if self._saldo < pago:
-            print("Saldo insuficiente")
+            self._saldo ## Devuelve el saldo y no realiza el pago
         else:
             total_pago = (pago +  (8 * cuota))
             interes = total_pago / cuota

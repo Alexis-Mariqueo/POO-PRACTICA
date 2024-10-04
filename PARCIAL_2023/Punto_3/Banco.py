@@ -1,6 +1,6 @@
 from Cuenta import Cuenta
 
-class Cuenta(Cuenta):
+class Banco(Cuenta):
     
     def __init__(self, dueño,saldo,numero_cuenta,cbu):
         super().__init__(dueño,saldo,numero_cuenta)
@@ -11,7 +11,7 @@ class Cuenta(Cuenta):
             
     def pagar_credito(self,pago,cuota):
         if self._saldo < pago:
-            print("Saldo insuficiente")
+            self._saldo ## devuelve el saldo y no realiza el pago
         else:
             if cuota <= 3:
                 descontar = pago /cuota

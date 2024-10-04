@@ -4,7 +4,8 @@ class Impuesto:
         self.__nombre = nombre
         self.__monto = monto
         self.__periodo = periodo
-        self.__estado = False
+        self.__estado_cobrado = False
+        self.__numero_comprobante =  0
     
     def get_nombre(self):
         return self.__nombre
