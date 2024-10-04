@@ -7,9 +7,14 @@ class Tablero:
         self.__tiempo = 0.0
         self.__jaque = False
         
-    def jaque(self):    
+    def set_jaque(self):    
         self.__jaque = True
+    
+    def get_jaque(self):
         return self.__jaque
+    
+    def get_tiempo(self):
+        return self.__tiempo
     
     def tiempo(self):
         if self.__tiempo > 0.60:
