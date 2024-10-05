@@ -31,39 +31,37 @@ lista_jugador_2.append(Rey())
 
 fila = [1,2,3,4,5,6,7,8]
 columna = ["a","b","c","d","f","g","h"]
-movimiento = [1,2]
-while tablero_ajedrez.tiempo() >= 5.00 or  tablero_ajedrez.get_jaque() == True:
+while (tablero_ajedrez.get_tiempo() > 0.00 or  tablero_ajedrez.get_jaque() == False) or lista_jugador_1 != 0 or  lista_jugador_2 != 0:
     opcion = 1
-    tablero_ajedrez.tiempo()
+    tablero_ajedrez.set_tiempo(tablero_ajedrez.tiempo())
     if opcion == 1:
         pieza = random.choice(lista_jugador_1)
-        pieza.mover_pieza(random.choice(movimiento),random.choice(fila),random.choice(columna))
+        pieza.mover_pieza(random.choice(fila),random.choice(columna))
         if random.randrange(1,100) < 75:
             pieza_atacada = random.choice(lista_jugador_2) 
-            pieza.atacar(pieza_atacada)
-            lista_jugador_2.pop(pieza_atacada)
-        if random.randrange(1,100) < 25:
+            pieza.ataque(pieza_atacada,random.choice(fila),random.choice(columna))
+            lista_jugador_2.remove(pieza_atacada)
+        if random.randrange(1,100) < 10:
             tablero_ajedrez.set_jaque()
             print("El jugador 1 hizo jaque")
             print("Tiempo jugado: {}".format(tablero_ajedrez.get_tiempo()))
             break
     opcion = opcion  + 1    
     if opcion ==2:
-        pieza = random.choice(lista_jugador_2)
-        pieza.mover_pieza(random.choice(movimiento),random.choice(fila),random.choice(columna))
+        pieza2 = random.choice(lista_jugador_2)
+        pieza2.mover_pieza(random.choice(fila),random.choice(columna))
         if random.randrange(1,100) < 75:
             pieza_atacada = random.choice(lista_jugador_1) 
-            pieza.atacar(pieza_atacada)
-            lista_jugador_1.pop(pieza_atacada)
-        if random.randrange(1,100) < 25:
+            pieza2.ataque(pieza_atacada,random.choice(fila),random.choice(columna))
+            lista_jugador_1.remove(pieza_atacada)
+        if random.randrange(1,100) < 10:
             tablero_ajedrez.set_jaque()
             print("El jugador 2 hizo jaque")
             print("Tiempo jugado: {}".format(tablero_ajedrez.get_tiempo()))
             break
-    if tablero_ajedrez.tiempo() == 5.00:
+    if tablero_ajedrez.get_tiempo() >= 5.00 or(lista_jugador_1 == 0 or lista_jugador_2 == 0):
         break
-    
-    
+
     
     
     

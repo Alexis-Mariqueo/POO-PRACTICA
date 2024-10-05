@@ -13,10 +13,10 @@ class Pieza(Movimiento,ABC):
     def contador_movimientos(self):
         return self._movimientos + 1
     
-    def mover_pieza(self,movimiento,fila,columna):
-        print(f"El peon se movio en la fila {fila}, columna {columna}")
+    def mover_pieza(self,fila,columna):
+        print(f"El {self.get_tipo()} se movio en la fila {fila}, columna {columna}")
         self.contador_movimientos()
         
         
     def ataque(self, pieza,fila,columna):
-        print(f"{self.get_tipo()} ataco a la pieza '{pieza.get_tipo()}' que se encontraba en la fila {fila} , columna{columna}")
+        print(f"{self.get_tipo()} ataco a la pieza '{pieza.get_tipo()}' que se encontraba en la fila {fila} , columna {columna}")

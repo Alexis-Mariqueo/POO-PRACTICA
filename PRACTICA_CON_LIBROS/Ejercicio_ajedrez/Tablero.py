@@ -16,6 +16,9 @@ class Tablero:
     def get_tiempo(self):
         return self.__tiempo
     
+    def set_tiempo(self,tiempo):
+        self.__tiempo = tiempo
+        
     def tiempo(self):
         if self.__tiempo > 0.60:
             self.__tiempo = self.__tiempo - 0.60
