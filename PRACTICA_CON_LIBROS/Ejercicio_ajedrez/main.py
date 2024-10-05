@@ -46,7 +46,8 @@ while (tablero_ajedrez.get_tiempo() > 0.00 or  tablero_ajedrez.get_jaque() == Fa
             print("El jugador 1 hizo jaque")
             print("Tiempo jugado: {}".format(tablero_ajedrez.get_tiempo()))
             break
-    opcion = opcion  + 1    
+    opcion = opcion  + 1
+    tablero_ajedrez.set_tiempo(tablero_ajedrez.tiempo())    
     if opcion ==2:
         pieza2 = random.choice(lista_jugador_2)
         pieza2.mover_pieza(random.choice(fila),random.choice(columna))
@@ -59,6 +60,7 @@ while (tablero_ajedrez.get_tiempo() > 0.00 or  tablero_ajedrez.get_jaque() == Fa
             print("El jugador 2 hizo jaque")
             print("Tiempo jugado: {}".format(tablero_ajedrez.get_tiempo()))
             break
+        tablero_ajedrez.set_tiempo(tablero_ajedrez.tiempo())
     if tablero_ajedrez.get_tiempo() >= 5.00 or(lista_jugador_1 == 0 or lista_jugador_2 == 0):
         break
 
