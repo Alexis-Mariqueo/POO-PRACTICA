@@ -1,0 +1,26 @@
+########################################################################
+
+#Patrones más básicos y de más bajo nivel suelen llamarse idioms. Normalmente se aplican
+#a un único lenguaje de programación
+
+#Patrones más universales y de más alto nivel son los patrones de arquitectura.
+#Pueden utilizarse para diseñar la arquitectura de una aplicación completa
+
+Clasificación de Patrones:
+
+LOS TRES PATRONES IMPORTANTES EN POO Y VISTOS EN LA CURSADA 
+_ Los patrones creacionales proporcionan mecanismos de creación de objetos
+que incrementan la flexibilidad y la reutilización de código existente.
+
+_ Los patrones estructurales explican cómo ensamblar objetos y clases en estructuras
+más grandes a la vez que se mantiene la flexibilidad y eficiencia de la estructurales.
+
+_ Los patrones de comportamiento se encargan de una comunicación efectiva y la asignación
+de responsabilidades entre objetos.
+
+
+
+
+
+
+########################################################################

@@ -1,0 +1,12 @@
+#################################################################################
+
+PATRÓN DE DISEÑO:
+
+Son soluciones habituales a problemas que ocurren con frecuencia en el diseño de software.
+Son como planos prefabricados que se pueden personalizar para resolver un problema de diseño.
+recurrente en tu código.
+El patrón no es una porción especifica de código, si no un concepto general
+para resolver un problema particular.
+Un patrón es una descripción de más alto nivel de una solución.
+
+################################################################################

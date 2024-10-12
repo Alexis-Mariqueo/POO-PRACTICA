@@ -1,0 +1,54 @@
+
+SOLID:
+
+_Single Responsibility Principle (Principio de responsabilidad Unica): Una clase debe tener una razón para
+cambiar. El principal objetivo de este principio es reducir la complejidad.
+Intenta hacer a cada clase responsable de una única parte de la
+funcionalidad proporcionada por el software, y haz que esa responsabilidad quede totalmente encapsulada 
+por (también puedes decir escondida dentro de) la clase.
+-----------------------------------------------------------------------------------------------
+_Open/Closed Principle (Principio de abierto/cerrado): Las clases deben estar abiertas a la extensión
+pero cerradas a al modificación.La idea fundamental de este principio es evitar que el código 
+existente se descomponga cuando implementas nuevas funciones.
+Pero en lo que respecta a este principio, una clase puede estar
+al mismo tiempo abierta (para la extensión) y cerrada (para la
+modificación).
+-----------------------------------------------------------------------------------------------
+_Liskov Substitution Principle(Principio de sustitución de Liskov): Al extender una clase, 
+recuerda que debes tener la capacidad de pasar objetos de las subclases en lugar de objetos 
+de la clase padre, sin descomponer el código cliente.
+Esto significa que la subclase debe permanecer compatible con el comportamiento de la superclase. 
+Al sobrescribir un método, extiende el comportamiento base en lugar de sustituirlo
+con algo totalmente distinto.
+
+-- Los tipos de parámetros en el método de una subclase deben
+   coincidir o ser más abstractos que los tipos de parámetros del
+   método de la superclase.
+
+-- El tipo de retorno en el método de una subclase debe coincidir
+   o ser un subtipo del tipo de retorno del método de la superclase.
+
+-- Un método de una subclase no debe arrojar tipos de excepciones 
+   que no se espere que arroje el método base. 
+   En otras palabras, los tipos de excepciones deben coincidir o ser subtipos de
+   los que el método base es capaz de arrojar.
+
+-- Una subclase no debe fortalecer las condiciones previas.
+
+-- Una subclase no debe debilitar las condiciones posteriores.
+
+-- Los invariantes de una superclase deben preservarse.
+
+-- Una subclase no debe cambiar los valores de campos privados de la superclase.
+-----------------------------------------------------------------------------------------------
+_Interface Segregation Principle (Principo de segregacion de la interfaz): No se debe forzar a 
+los clientes a depender de métodos que no utilizan.
+-----------------------------------------------------------------------------------------------
+_Dependency Inversion Principle (Principio de la inversión de la dependecia): Las clases de alto 
+nivel no deben depender de clases de bajo nivel. Ambas deben depender de abstracciones. 
+Las abstracciones no deben depender de detalles. Los detalles deben depender de abstracciones.
+• Las clases de bajo nivel implementan operaciones básicas,
+como trabajar con un disco, transferir datos por una red, conectar con una base de datos, etc.
+• Las clases de alto nivel contienen la lógica de negocio compleja que ordena 
+a las clases de bajo nivel que hagan algo.
+-----------------------------------------------------------------------------------------------
