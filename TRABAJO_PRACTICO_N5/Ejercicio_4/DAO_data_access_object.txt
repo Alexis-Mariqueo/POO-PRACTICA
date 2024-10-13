@@ -21,8 +21,9 @@ de esta forma, el DAO proporcionará los métodos necesarios para insertar, actu
 la información; por otra parte, la capa de negocio solo se preocupa por lógica de negocio y utiliza 
 el DAO para interactuar con la fuente de datos.
 
-
 ##COMPONENTES
+##Ver imagen UML-CLASES
+
 Los compones que conforman el patrón son:
 
 __BusinessObject: representa un objeto con la lógica de negocio.
@@ -37,6 +38,7 @@ __DataSource: representa de forma abstracta la fuente de datos, la cual puede se
 Webservices, LDAP, archivos de texto, etc.
 
 ## COMO FUNCIONA EL PATRON DAO (Data Access Object)
+##Ver imagen UML-SEQUENCE
 El diagrama se interpreta de la siguiente manera:
 
 1. El BusinessObject creo u obtiene una referencia al DataAccessObject.
