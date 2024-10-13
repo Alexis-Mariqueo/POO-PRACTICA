@@ -33,6 +33,22 @@ los detalles técnicos para recuperar los datos.
 
 __TransferObject: este es un objeto plano que implementa el patrón Data Transfer Object (DTO), 
 el cual sirve para transmitir la información entre el DAO y el Business Service.
+###################################################################
+-----------------------------------------------------------------------------------------
+Solo lectura: Dado que el objetivo de un DTO es utilizarlo como un objeto de transferencia 
+entre el cliente y el servidor, es importante evitar tener operaciones de negocio o 
+métodos que realicen cálculos sobre los datos, es por ello que solo deberemos de tener 
+los métodos GET y SET de los respectivos atributos del DTO.
+-----------------------------------------------------------------------------------------
+Serializable: Es claro que, si los objetos tendrán que viajar por la red, 
+deberán de poder ser serializables, pero no hablamos solamente de la clase en sí, 
+sino que también todos los atributos que contenga el DTO deberán ser fácilmente serializables. 
+Un error clásico en Java es, por ejemplo, crear atributos de tipo Date o Calendar para transmitir 
+la fecha u hora, ya que estos no tienen una forma estándar para serializarse 
+por ejemplo en Webservices o REST.
+-----------------------------------------------------------------------------------------
+###################################################################
+
 
 __DataSource: representa de forma abstracta la fuente de datos, la cual puede ser una base de datos, 
 Webservices, LDAP, archivos de texto, etc.
@@ -41,12 +57,12 @@ Webservices, LDAP, archivos de texto, etc.
 ##Ver imagen UML-SEQUENCE
 El diagrama se interpreta de la siguiente manera:
 
-1. El BusinessObject creo u obtiene una referencia al DataAccessObject.
-2. El BusinessObject solicita información al DataAccessObject
+1_ El BusinessObject creo u obtiene una referencia al DataAccessObject.
+2_ El BusinessObject solicita información al DataAccessObject
     - El DataAccessObject solicita la información al DataSource
     - El DataAccessObject crea una instancia del TransferObject con los datos recuperados del DataSource
     - El DataAccessObject response con el TransferObject creado en los pasos anteriores.
-3. El BusinessObject actualiza algún valor del TransferObject
+3_ El BusinessObject actualiza algún valor del TransferObject
    Más actualizaciones
-4. El BusinessObject solicita el guardado de los datos actualizados al DataAccessObject.
+4_ El BusinessObject solicita el guardado de los datos actualizados al DataAccessObject.
     El DataAccessObject guarda los datos en el DataSource.
