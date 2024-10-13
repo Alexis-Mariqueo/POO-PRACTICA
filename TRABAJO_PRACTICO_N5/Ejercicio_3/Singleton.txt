@@ -1,0 +1,253 @@
+#############################################################################
+
+Para implementar el patron Singleton:
+1.Añade un campo estático privado a la clase para almacenar la instancia Singleton.
+
+2.Declara un método de creación estático público para obtener la instancia Singleton.
+
+3.Implementa una inicialización diferida dentro del método estático. 
+Debe crear un nuevo objeto en su primera llamada y colocarlo dentro del campo estático. 
+El método deberá devolver siempre esa instancia en todas las llamadas siguientes.
+
+4.Declara el constructor de clase como privado. El método estático de la clase seguirá siendo 
+capaz de invocar al constructor, pero no a los otros objetos.
+
+5.Repasa el código cliente y sustituye todas las llamadas directas al constructor de la 
+instancia Singleton por llamadas a su método de creación estático.
+
+##Patrón Singleton para establecer la conexión con una base##
+##          de datos de Postgresql o MySql.                ##
+
+Para establer la conexion con una base de datos se debe aplicar el patron de diseño Singleton
+que permite restringir la creación de objetos pertenecientes a una clase o el valor de tipo
+único objeto. Su intención consiste en garantizar que una clase solo tenga una instancia
+y proporcionar un punto de acceso global en ella.
+
+##Un ejemplo de como implementar esta conexion en java
+Paso_1:
+Crearemos una nueva clase, por ejemplo EjemploSingleton, que será la responsable de crear la única instancia.
+
+import java.sql.*;
+
+public class EjemploSingleton {
+
+}
+
+Paso_2:
+Lo siguiente será crear una variable estática que almacenará nuestra conexión y la inicializaremos a null
+
+private static Connection conn = null;
+
+Paso_3:
+Después de eso deberemos crear un constructor para nuestra nueva clase, pero lo crearemos privado.
+
+private EjemploSingleton(){
+ 
+    String url = "jdbc:mysql://localhost:3306/test";
+    String driver = "com.mysql.jdbc.Driver";
+    String usuario = "usuario";
+    String password = "password";
+ 
+    try{
+ Class.forName(driver);
+ conn = DriverManager.getConnection(url, usuario, password);
+    }
+    catch(ClassNotFoundException | SQLException e){
+ e.printStackTrace();
+    }
+}
+
+Paso_4:
+Al constructor lo llama la propia clase, a través de un método.
+crear un método llamado getConnection en el que indicaremos que si nuestra 
+propiedad conn es nula, vuelva a levantar el driver y crear una conexión llamando al constructor privado.
+Retomamos la conexión para trabajar con ella.
+
+public static Connection getConnection(){
+ 
+    if (conn == null){
+ new EjemploSingleton();
+    }
+ 
+    return conn;
+}
+
+Paso_5:
+una vez programada nuestra clase, podremos echar mano de esa conexión desde cualquier 
+parte de nuestro programa llamándolo de esta forma
+
+Connection conn = EjemploSingleton.getConnection()
+
+#########################################################################
+import java.sql.*;
+
+public class EjemploSingleton {
+
+    // Propiedades
+    private static Connection conn = null;
+    private String driver;
+    private String url;
+    private String usuario;
+    private String password;
+ 
+    // Constructor
+    private EjemploSingleton(){
+ 
+ String url = "jdbc:mysql://localhost:3306/test";
+ String driver = "com.mysql.jdbc.Driver";
+ String usuario = "usuario";
+ String password = "password";
+  
+ try{
+     Class.forName(driver);
+     conn = DriverManager.getConnection(url, usuario, password);
+ }
+ catch(ClassNotFoundException | SQLException e){
+     e.printStackTrace();
+ }
+    } // Fin constructor
+ 
+    // Métodos
+    public static Connection getConnection(){
+  
+ if (conn == null){
+     new EjemploSingleton();
+ }
+  
+ return conn;
+    } // Fin getConnection
+}
+
+public static cerrarConexion(){
+    if (conn != null){
+        conn.close();
+    }
+}
+
+
+####################################################################
+
+## EN PYTHON:
+
+## Implementación del Patrón Singleton para la conexión con PostgreSQL o MySQL ##
+
+Instalación de las bibliotecas:
+
+Para PostgreSQL:
+
+pip install psycopg2
+
+Para MySQL:
+
+pip install mysql-connector-python
+
+Clase Singleton para la conexión a la base de datos:
+El siguiente código muestra cómo crear una clase Singleton que gestiona la conexión con PostgreSQL o MySQL.
+
+----------------------------------------------------------------------------------------------------
+Ejemplo para PostgreSQL:
+
+import psycopg2
+from psycopg2 import pool
+
+class DatabaseSingleton:
+    __instance = None
+
+    def __new__(cls):
+        if cls.__instance is None:
+            cls.__instance = super(DatabaseSingleton, cls).__new__(cls)
+            cls.__instance.init_connection_pool()
+        return cls.__instance
+
+    def init_connection_pool(self):
+        try:
+            self.connection_pool = psycopg2.pool.SimpleConnectionPool(
+                1,  # Mínimo de conexiones en el pool
+                20,  # Máximo de conexiones en el pool
+                user="your_username",
+                password="your_password",
+                host="localhost",
+                port="5432",
+                database="your_database"
+            )
+            if self.connection_pool:
+                print("Conexión exitosa con la base de datos PostgreSQL.")
+        except Exception as e:
+            print(f"Error al conectar a PostgreSQL: {e}")
+
+    def get_connection(self):
+        return self.connection_pool.getconn()
+
+    def release_connection(self, connection):
+        self.connection_pool.putconn(connection)
+
+    def close_all_connections(self):
+        self.connection_pool.closeall()
+
+# Uso del Singleton
+db_singleton = DatabaseSingleton()
+connection = db_singleton.get_connection()
+
+# Operaciones con la base de datos aquí...
+
+# Libera la conexión al pool
+db_singleton.release_connection(connection)
+
+Explicacion del codigo:
+1_Constructor Singleton: El método __new__ asegura que solo haya una instancia 
+de la clase DatabaseSingleton. Si ya existe una instancia, se devuelve esa misma.
+
+2_Connection Pool: Usamos un pool de conexiones para reutilizar conexiones abiertas 
+en lugar de crear y cerrar conexiones repetidamente. Esto mejora el rendimiento.
+
+3_Métodos de conexión:
+
+-- get_connection: Obtiene una conexión desde el pool.
+-- release_connection: Libera la conexión de vuelta al pool.
+-- close_all_connections: Cierra todas las conexiones del pool (solo en PostgreSQL).
+
+
+##Ejemplo para MySQL:
+----------------------------------------------------------------------------------------------------
+import mysql.connector
+from mysql.connector import pooling
+
+class DatabaseSingleton:
+    __instance = None
+
+    def __new__(cls):
+        if cls.__instance is None:
+            cls.__instance = super(DatabaseSingleton, cls).__new__(cls)
+            cls.__instance.init_connection_pool()
+        return cls.__instance
+
+    def init_connection_pool(self):
+        try:
+            self.connection_pool = mysql.connector.pooling.MySQLConnectionPool(
+                pool_name="mypool",
+                pool_size=5,
+                pool_reset_session=True,
+                user="your_username",
+                password="your_password",
+                host="localhost",
+                database="your_database"
+            )
+            if self.connection_pool:
+                print("Conexión exitosa con la base de datos MySQL.")
+        except Exception as e:
+            print(f"Error al conectar a MySQL: {e}")
+
+    def get_connection(self):
+        return self.connection_pool.get_connection()
+
+    def release_connection(self, connection):
+        connection.close()
+
+# Uso del Singleton
+db_singleton = DatabaseSingleton()
+connection = db_singleton.get_connection()
+
+# Operaciones con la base de datos aquí...
+
+# Cerrar la conexión cuando termines
+db_singleton.release_connection(connection)

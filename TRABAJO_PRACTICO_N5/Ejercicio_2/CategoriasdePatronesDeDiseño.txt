@@ -12,12 +12,46 @@ LOS TRES PATRONES IMPORTANTES EN POO Y VISTOS EN LA CURSADA
 _ Los patrones creacionales proporcionan mecanismos de creación de objetos
 que incrementan la flexibilidad y la reutilización de código existente.
 
+##Builder:
+Builder es un patrón de diseño creacional que nos permite construir objetos 
+complejos paso a paso. El patrón nos permite producir distintos tipos y representaciones 
+de un objeto empleando el mismo código de construcción.
+
+##Factory Method
+Factory Method es un patrón de diseño creacional que proporciona una interfaz para crear 
+objetos en una superclase, mientras permite a las subclases alterar el tipo de objetos que se crearán.
+
+##Singleton
+Singleton es un patrón de diseño creacional que nos permite asegurarnos de que una clase tenga una única 
+instancia, a la vez que proporciona un punto de acceso global a dicha instancia.
+
 _ Los patrones estructurales explican cómo ensamblar objetos y clases en estructuras
 más grandes a la vez que se mantiene la flexibilidad y eficiencia de la estructurales.
+
+##Facade
+Facade es un patrón de diseño estructural que proporciona una interfaz simplificada a una 
+biblioteca, un framework o cualquier otro grupo complejo de clases.
+
+##Composite
+Composite es un patrón de diseño estructural que te permite componer objetos en estructuras 
+de árbol y trabajar con esas estructuras como si fueran objetos individuales.
+
 
 _ Los patrones de comportamiento se encargan de una comunicación efectiva y la asignación
 de responsabilidades entre objetos.
 
+##Observer
+Observer es un patrón de diseño de comportamiento que te permite definir un 
+mecanismo de suscripción para notificar a varios objetos sobre cualquier evento 
+que le suceda al objeto que están observando.
+
+##State
+State es un patrón de diseño de comportamiento que permite a un objeto alterar 
+su comportamiento cuando su estado interno cambia. Parece como si el objeto cambiara su clase.
+
+##Strategy
+Strategy es un patrón de diseño de comportamiento que te permite definir una familia de 
+algoritmos, colocar cada uno de ellos en una clase separada y hacer sus objetos intercambiables.
 
 
 

@@ -1,0 +1,50 @@
+##DAO (Data Access Object)
+
+El patrón Data Access Object (DAO) es un patrón de diseño utilizado para separar la lógica 
+de acceso a datos de la lógica de negocio. Proporciona una abstracción sobre la fuente de datos, 
+lo que permite que el resto de la aplicación interactúe con la base de datos a través de una 
+interfaz bien definida. Esto facilita el mantenimiento y permite cambiar la implementación 
+del acceso a los datos (por ejemplo, cambiar de MySQL a PostgreSQL) sin modificar la lógica de negocio.
+
+Pasos:
+1.Entidades: Las entidades de negocio son representaciones de los datos en la base de datos. 
+Estas son clases con atributos que representan las columnas de una tabla.
+2.DAO: Cada entidad tiene una clase DAO asociada que contiene los métodos para realizar 
+las operaciones CRUD en la base de datos.
+3.Conexión a la base de datos: Usamos un patrón Singleton para gestionar la conexión a la base de datos.
+
+______________________________________________________________________________________________________________
+##PATRON DAO (Data Access Object)
+
+El patrón DAO propone separar por completo la lógica de negocio de la lógica para acceder a los datos, 
+de esta forma, el DAO proporcionará los métodos necesarios para insertar, actualizar, borrar y consultar 
+la información; por otra parte, la capa de negocio solo se preocupa por lógica de negocio y utiliza 
+el DAO para interactuar con la fuente de datos.
+
+
+##COMPONENTES
+Los compones que conforman el patrón son:
+
+__BusinessObject: representa un objeto con la lógica de negocio.
+
+__DataAccessObject: representa una capa de acceso a datos que oculta la fuente y 
+los detalles técnicos para recuperar los datos.
+
+__TransferObject: este es un objeto plano que implementa el patrón Data Transfer Object (DTO), 
+el cual sirve para transmitir la información entre el DAO y el Business Service.
+
+__DataSource: representa de forma abstracta la fuente de datos, la cual puede ser una base de datos, 
+Webservices, LDAP, archivos de texto, etc.
+
+## COMO FUNCIONA EL PATRON DAO (Data Access Object)
+El diagrama se interpreta de la siguiente manera:
+
+1. El BusinessObject creo u obtiene una referencia al DataAccessObject.
+2. El BusinessObject solicita información al DataAccessObject
+    - El DataAccessObject solicita la información al DataSource
+    - El DataAccessObject crea una instancia del TransferObject con los datos recuperados del DataSource
+    - El DataAccessObject response con el TransferObject creado en los pasos anteriores.
+3. El BusinessObject actualiza algún valor del TransferObject
+   Más actualizaciones
+4. El BusinessObject solicita el guardado de los datos actualizados al DataAccessObject.
+    El DataAccessObject guarda los datos en el DataSource.
