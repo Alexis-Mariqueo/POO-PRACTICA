@@ -1,26 +1,24 @@
-from TortaBuilder import TortaBuilder
 
 class Director:
     
-    def __init__(self) -> None:
-        self._builder = None
+    def __init__(self, constructor_de_torta):
+        self.__constructor_de_torta = constructor_de_torta
 
-    @property
-    def builder(self) -> TortaBuilder:
-        return self._builder
+    def torta_vainilla(self):
+        self.__constructor_de_torta.crear_torta()
+        self.__constructor_de_torta.agregar_masa("Vainilla")
+        self.__constructor_de_torta.agregar_relleno("Dulce de Leche con Banana")
 
-    @builder.setter
-    def builder(self, builder: TortaBuilder) -> None:
-        self._builder = builder
+    def torta_coco(self):
+        self.__constructor_de_torta.crear_torta()
+        self.__constructor_de_torta.agregar_masa("Coco")
+        self.__constructor_de_torta.agregar_relleno("Merengue")
 
-    def torta_basic(self) -> None:
-        self.builder.set_masa("Vainilla")
-        self.builder.set_relleno("Nutella con frutillas")
+    def torta_chocolate(self):
+        self.__constructor_de_torta.crear_torta()
+        self.__constructor_de_torta.agregar_masa("Chocolate")
+        self.__constructor_de_torta.agregar_relleno("Crema con Frutilla y Mermelada de Frutos Rojos")
 
-    def torta_medium(self) -> None:
-        self.builder.set_masa("Coco")
-        self.builder.set_relleno("Dulce de leche con banana")
-
-    def torta_full(self)->None:
-        self.builder.set_masa("Chocolate")
-        self.builder.set_relleno("Mermelada de Frutilla")
+    def get_torta(self):
+        return self.__constructor_de_torta.get_torta()
+    
