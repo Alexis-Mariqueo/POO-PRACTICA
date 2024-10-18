@@ -1,13 +1,12 @@
-from Creator import Creator
-from Importe import Importe
+from Tienda import Tienda
 from JuegoFisico import JuegoFisico
 
 #Los Creadores Concretos sobrescriben el Factory Method base,
 # de modo que devuelva un tipo diferente de producto.
 
-class ConcreteCreatorJuegoFisico(Creator):
+class ConcreteCreatorJuegoFisico(Tienda):
     
-    def factory_method(self) -> Importe:
-        return JuegoFisico('45678961',40.0,30.0)
+    def creador_juego(self) :
+        return JuegoFisico('45678961',1200.0,1000.0)
 
 

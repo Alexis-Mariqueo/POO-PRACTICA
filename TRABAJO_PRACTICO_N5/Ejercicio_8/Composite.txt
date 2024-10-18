@@ -1,0 +1,35 @@
+##COMPOSITE
+
+Composite es un patrón de diseño estructural que te permite componer 
+objetos en estructuras de árbol y trabajar con esas estructuras como 
+si fueran objetos individuales.
+
+#VENTAJA
+-----------------------------------------------------------------------------
+Una Interfaz común que declara un método para calcular el precio total.
+-----------------------------------------------------------------------------
+La gran ventaja de esta solución es que no tienes que preocuparte por 
+las clases concretas de los objetos que componen el árbol. No tienes 
+que saber si un objeto es un producto simple o una sofisticada caja. 
+Puedes tratarlos a todos por igual a través de la interfaz común. 
+Cuando invocas un método, los propios objetos pasan la solicitud a lo largo del árbol.
+-----------------------------------------------------------------------------
+
+#ESTRUCTURA:
+
+1_ La interfaz Componente describe operaciones que son comunes a elementos simples y complejos del árbol.
+
+2_ La Hoja es un elemento básico de un árbol que no tiene subelementos.
+Normalmente, los componentes de la hoja acaban realizando la mayoría del trabajo real, 
+ya que no tienen a nadie a quien delegarle el trabajo.
+
+3_ El Contenedor (también llamado compuesto) es un elemento que tiene 
+subelementos: hojas u otros contenedores. Un contenedor no conoce las clases
+concretas de sus hijos. Funciona con todos los subelementos únicamente a través de
+la interfaz componente. Al recibir una solicitud, un contenedor delega 
+el trabajo a sus subelementos, procesa los resultados intermedios y 
+devuelve el resultado final al cliente.
+
+4_El Cliente funciona con todos los elementos a través de la interfaz componente. 
+Como resultado, el cliente puede funcionar de la misma manera tanto con elementos
+simples como complejos del árbol.

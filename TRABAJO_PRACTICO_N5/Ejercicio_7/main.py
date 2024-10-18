@@ -6,7 +6,7 @@ from CaseHelper import CaseHelper
 
 facade = Facade(Helper(),CaseHelper())
 
-words = ["Hola", "Perro", "Casa"]
+words = ["Hola", "Perro"]
 
 for word in words:
     print("________________________________________________")
