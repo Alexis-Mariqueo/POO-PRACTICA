@@ -9,7 +9,7 @@ class Producto(Precio):
         return '$'  
 
     def get_precio(self):
-        return self.__precio 
+        return  self.__precio 
     
 
 
