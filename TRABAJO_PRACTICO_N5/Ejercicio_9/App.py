@@ -4,7 +4,7 @@ from MonedaEEUU import MonedaEEUU
 
 # Crear un producto
 producto = Producto("90000,50")
-print(f"cuesta {producto.get_precio()}")
+print(f"cuesta {producto.get_line_description() } {producto.get_precio()}")
 
 # En Arg
 producto_arg = MonedaARG(producto)
