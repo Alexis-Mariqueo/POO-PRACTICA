@@ -13,7 +13,7 @@
 class Helper:
     def __init__(self):
         # Diccionario de traducciones 
-        self.translations = {
+        self.__translations = {
             "hola": "hello",
             "mundo": "world",
             "perro": "dog",
@@ -22,4 +22,4 @@ class Helper:
         }
 
     def translate_to_english(self, word): ##Si la palabra no se encuentra en el diccionario
-        return self.translations.get(word.lower(), "Translation not found")
+        return self.__translations.get(word.lower(), "Translation not found")
