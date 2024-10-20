@@ -12,10 +12,9 @@ reportero_3 = Reportero("Ale")
 # Los clientes se suscriben al producto
 clima.agregar_observador(reportero_1)
 clima.agregar_observador(reportero_2)
-
-clima.agregar_observador(reportero_3)
 clima.set_clima("Soleado")
 clima.set_clima("Nublado")
+clima.agregar_observador(reportero_3)
 clima.set_clima("Ventoso")
 # Cambiar el precio del producto, lo cual notifica a los suscriptores
 #clima.set_clima("Soleado")
